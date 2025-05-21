@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive CIDEx Flashcards</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f2f2f2;
+      color: #333;
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 2rem;
+    }
+
+    .flashcards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+      background-color: #f9f9f9;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .step {
+      margin-top: 1rem;
+      padding: 0.75rem;
+      border-radius: 8px;
+    }
+
+    .question { background-color: #eaf6ff; border-left: 4px solid #3498db; }
+    .answer   { background-color: #e9fbe5; border-left: 4px solid #27ae60; }
+    .explain  { background-color: #fff9e6; border-left: 4px solid #f1c40f; }
+    .example  { background-color: #fdeaea; border-left: 4px solid #e74c3c; }
+
+    .emoji {
+      font-size: 1.2rem;
+      margin-right: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎖️ CIDEx Level 2 Oral Exam Flashcards</h1>
+  <div class="flashcards">
+    <!-- Card 1 -->
+    <div class="card" onclick="toggleCard(this)">
+      <div class="step question"><span class="emoji">❓</span><strong>Tell me about yourself and your current role in the Army.</strong></div>
+      <div class="hidden step answer"><span class="emoji">✅</span>My name is First Lieutenant Rocha. I currently serve as an operations coordinator in an infantry battalion. My responsibilities include planning and supervising training exercises, managing personnel, and ensuring operational readiness.</div>
+      <div class="hidden step explain"><span class="emoji">🧠</span>Uses present simple to describe current duties. Keywords: operations coordinator, infantry battalion, operational readiness.</div>
+      <div class="hidden step example"><span class="emoji">📌</span>“I also take part in multinational exercises, where I’ve developed leadership and intercultural communication skills.”</div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card" onclick="toggleCard(this)">
+      <div class="step question"><span class="emoji">❓</span>Describe a situation where you had to make a quick decision during a mission.</div>
+      <div class="hidden step answer"><span class="emoji">✅</span>During a field operation in 2023, we faced an unexpected communication failure. I redirected the teams using backup frequencies. This allowed the mission to continue successfully.</div>
+      <div class="hidden step explain"><span class="emoji">🧠</span>Uses past simple for recounting. Keywords: assess the situation, backup radio frequencies, contingency planning.</div>
+      <div class="hidden step example"><span class="emoji">📌</span>“As the ranking officer, I had to assess quickly and act immediately.”</div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card" onclick="toggleCard(this)">
+      <div class="step question"><span class="emoji">❓</span>What are the main challenges of leading a team during a crisis?</div>
+      <div class="hidden step answer"><span class="emoji">✅</span>It requires emotional intelligence, calm under pressure, and clear communication. Maintaining morale while making tough decisions is essential.</div>
+      <div class="hidden step explain"><span class="emoji">🧠</span>Conceptual response in present simple. Shows maturity and leadership vocabulary.</div>
+      <div class="hidden step example"><span class="emoji">📌</span>“Strong leadership balances empathy with decisiveness.”</div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card" onclick="toggleCard(this)">
+      <div class="step question"><span class="emoji">❓</span>How has your experience in the Army prepared you to work in international missions?</div>
+      <div class="hidden step answer"><span class="emoji">✅</span>The Army taught me discipline, adaptability, and teamwork. I worked with foreign forces and developed cross-cultural communication.</div>
+      <div class="hidden step explain"><span class="emoji">🧠</span>Mix of present perfect and past. Vocabulary includes joint exercises, military doctrines.</div>
+      <div class="hidden step example"><span class="emoji">📌</span>“My experience in joint operations taught me to remain calm in high-pressure situations.”</div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="card" onclick="toggleCard(this)">
+      <div class="step question"><span class="emoji">❓</span>In your opinion, what qualities make an effective military leader?</div>
+      <div class="hidden step answer"><span class="emoji">✅</span>Integrity, strategic thinking, and the ability to inspire. Leadership is about leading by example and staying calm in adversity.</div>
+      <div class="hidden step explain"><span class="emoji">🧠</span>Opinion structure with abstract nouns. Highlights rank-neutral respect and emotional control.</div>
+      <div class="hidden step example"><span class="emoji">📌</span>“The best leaders I’ve served with inspired respect regardless of rank.”</div>
+    </div>
+  </div>
+
+  <script>
+    function toggleCard(card) {
+      const steps = card.querySelectorAll('.step');
+      let indexToShow = Array.from(steps).findIndex(s => s.classList.contains('hidden'));
+      if (indexToShow >= 0) {
+        steps[indexToShow].classList.remove('hidden');
+      } else {
+        for (let i = 1; i < steps.length; i++) {
+          steps[i].classList.add('hidden');
+        }
+      }
+    }
+  </script>
+</body>
+</html>
